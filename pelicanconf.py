@@ -1,14 +1,14 @@
 # Theme-specific settings
-SITENAME = 'Tech exploration'
+SITENAME = 'KhalidCK'
 DOMAIN = 'khalidck.fr'
-BIO_TEXT = 'KhalidCK - Devops stories'
+BIO_TEXT = 'technotes'
 FOOTER_TEXT = 'Powered by <a href="http://getpelican.com">Pelican</a>'
 THEME='pneumatic'
 
 SITE_AUTHOR = 'Khalid CK'
 TWITTER_USERNAME = ''
 GOOGLE_PLUS_URL = ''
-INDEX_DESCRIPTION = 'Blog on devops topics - KhalidCK'
+INDEX_DESCRIPTION = 'Blog on devops topics'
 
 SIDEBAR_LINKS = []
 
@@ -25,7 +25,7 @@ RELATIVE_URLS = True
 SITEURL = 'https://khalidck.fr'
 TIMEZONE = 'Europe/Paris'
 DEFAULT_DATE = 'fs'
-DEFAULT_DATE_FORMAT = '%-d %B %Y'
+DEFAULT_DATE_FORMAT = '%B %Y'
 DEFAULT_PAGINATION = False
 SUMMARY_MAX_LENGTH = 42
 
