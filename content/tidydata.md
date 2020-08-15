@@ -99,9 +99,9 @@ En python cela donne :
 
 ```python
 """
-Behind the scene :
-1.`france` est de type Pandas dataframe
-1. on normalise en pourcentage les valeurs pour comparer les départements
+Notes
+- `france` est de type Pandas dataframe
+- on passe en pourcentage les valeurs pour comparer les départements
    pourcentage = (nb tranche d'age pour un departement) / (nombre total de personne dans un departement)
 """
 france[france.departements.isin(['59', '75', '67'])]

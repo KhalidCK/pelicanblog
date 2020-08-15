@@ -1,5 +1,5 @@
 ---
-title: "Le bio du coin"
+title: "AWS Serverless"
 date: 2020-05-26T17:03:36+01:00
 draft: false
 ---
@@ -57,7 +57,7 @@ Le resultat: **[VegePrice.fr](https://www.vegeprice.fr)**
 Cependant, il n’y a pas de solution magique
 
 > [There ain't no such thing as a free
-> lunch](https://en.wikipedia.org/wiki/There_ain%27t_no_such_thing_as_a_free_lunch))
+> lunch](https://en.wikipedia.org/wiki/There_ain%27t_no_such_thing_as_a_free_lunch)
 
 Cette approche demande de nouvelles expertises, moins de
 contrôle direct, un pricing plus compliqué…

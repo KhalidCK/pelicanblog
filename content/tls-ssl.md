@@ -30,9 +30,6 @@ Il orchestre les différents échanges et permet aux client et serveur distant d
 *   S’accorder sur la façon de sécuriser leurs échanges (combinaison d’algorithmes, échange de clés ...)
 *   Vérifier l’identité du serveur distant 
 
-
-![stack-overview]({static}/images/tls/trust-chain-overview.svg)
-
 ## Un certificat ?
 
 Il permet d’assurer à l’utilisateur d’une clé publique qu’elle appartient bien à la personne attendue.
@@ -40,6 +37,9 @@ Il permet d’assurer à l’utilisateur d’une clé publique qu’elle apparti
 On les retrouve dans la nature sous forme de fichier *.pem ou *.dem.
 
 Il protège d’attaque de type  “man in the middle”. 
+
+![stack-overview]({static}/images/tls/trust-chain-overview.svg)
+
 
 ## Un navigateur fait confiance à certaines pages et pas d’autres
 
