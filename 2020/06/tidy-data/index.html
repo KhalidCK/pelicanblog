@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>“Tidy Data” | KhalidCK</title>
+	<meta name="description" content="Que partagent un bon cuisinier et un bon “data analyst” ? La préparation avant la recette. Pour un chef, la clarté vient de l’organisation de son espace. Les quelques ustensiles nécessaires sont à portée de main et les ingrédients sont positionnés stratégiquement …">
+	<meta name="author" content="Khalid CK">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="khalidck.fr">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="“Tidy Data”">
+	<meta property="og:description" content="Que partagent un bon cuisinier et un bon “data analyst” ? La préparation avant la recette. Pour un chef, la clarté vient de l’organisation de son espace. Les quelques ustensiles nécessaires sont à portée de main et les ingrédients sont positionnés stratégiquement …">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="/2020/06/tidy-data/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<div id="name"><a href="/">KhalidCK</a></div>
+			<div id="bio">technotes</div>
+
+
+			<div id="social">
+				<a href="https://github.com/khalidck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.linkedin.com/in/khalid-chakhmoun-83876033" title="LinkedIN" class="icon fa fa-linkedin"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/2020/06/tidy-data/" title="Permalink to “Tidy Data”"><span class="dquo">&#8220;</span>Tidy&nbsp;Data&#8221;</a></h1>
+	<time class="date" datetime="2020-06-26 17:03:36+01:00">June 2020</time>
+	<div class="content">
+		<p><a href="https://colab.research.google.com/github/KhalidCK/tidydata/blob/master/population2019.ipynb"><img alt="Colab" src="https://colab.research.google.com/assets/colab-badge.svg"></a></p>
+<!--BEACON
+Mettre ses données en ordre, c'est plus de temps pour poser les bonnes questions !
+-->
+
+<p>Que partagent un bon cuisinier et un bon &#8220;data analyst&#8221; ? La préparation avant la&nbsp;recette.</p>
+<p>Pour un chef, la clarté vient de l&#8217;organisation de son espace. Les quelques ustensiles nécessaires sont à portée de main et les ingrédients sont positionnés&nbsp;stratégiquement.</p>
+<p>C&#8217;est un concept que l&#8217;on retrouve en analyse de donnée sous le nom de &#8220;tidy data&#8221;, un terme popularisé par Hadley Wickham, dans un article du <em>journal of statistical software</em>.</p>
+<p>L&#8217;essence des propositions de Hadley tourne autour de 3&nbsp;axes:</p>
+<ol>
+<li>Une ligne est une&nbsp;observation</li>
+</ol>
+<p><img alt="Excel rendering" src="/images/tidydata/tidy-observation.png"></p>
+<ol>
+<li>Chaque colonne est une&nbsp;variable</li>
+</ol>
+<p><img alt="Excel rendering" src="/images/tidydata/tidy-variable.png"></p>
+<ol>
+<li>Une cellule contient une valeur&nbsp;unique</li>
+</ol>
+<p><img alt="Excel rendering" src="/images/tidydata/tidy-valeur.png"></p>
+<!--TODO: explorer un exemple pour illustration -->
+<!-- election européen ? Fait d'actualité (température?) -->
+<!-- https://www.data.gouv.fr/fr/datasets/chiffres-departementaux-mensuels-relatifs-aux-crimes-et-delits-enregistres-par-les-services-de-police-et-de-gendarmerie-depuis-janvier-1996/#_ -->
+<!-- election euro : https://election-results.eu/tools/download-datasheets/ -->
+
+<h2>Etude de&nbsp;cas</h2>
+<p>La question qui va nous guider pour cet&nbsp;exemple:</p>
+<p><strong><span class="dquo">&#8220;</span>Quel est l&#8217;âge approximatif des habitants de Lille, Strasbourg et Paris en 2018&#8221;&nbsp;?</strong></p>
+<p>L&#8217;insee offre de nombreux jeux de données&nbsp;démographiques</p>
+<blockquote>
+<p>Chaque année, l&#8217;Insee estime la population des régions et des départements (France métropolitaine et <span class="caps">DOM</span>) à la date du 1ᵉʳ janvier. Ces estimations annuelles de population sont déclinées par sexe et par âge (quinquennal, classes&nbsp;d&#8217;âge).</p>
+</blockquote>
+<p>note: c&#8217;est souvent une bonne idée de parcourir la <a href="https://www.insee.fr/fr/statistiques/1893198#documentation">documentation</a> de la&nbsp;donnée</p>
+<p>Le dataset est un fichier excel&nbsp;:</p>
+<p><img alt="Excel rendering" src="/images/tidydata/raw-excel-population0.png"></p>
+<p>Je vous passe les détails de la transformation en csv qui nous amène à ce&nbsp;résultat.</p>
+<table>
+<thead>
+<tr>
+<th>departements</th>
+<th>0 à 19 ans</th>
+<th>20 à 39 ans</th>
+<th>40 à 59 ans</th>
+<th>60 à 74 ans</th>
+<th>75 ans et plus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>167720.0</td>
+<td>150949.0</td>
+<td>179476.0</td>
+<td>102788.0</td>
+<td>52755.0</td>
+</tr>
+<tr>
+<td>02</td>
+<td>131435.0</td>
+<td>115046.0</td>
+<td>137405.0</td>
+<td>96000.0</td>
+<td>48130.0</td>
+</tr>
+<tr>
+<td>03</td>
+<td>67628.0</td>
+<td>61986.0</td>
+<td>87232.0</td>
+<td>71910.0</td>
+<td>44309.0</td>
+</tr>
+<tr>
+<td>04</td>
+<td>33883.0</td>
+<td>30028.0</td>
+<td>43039.0</td>
+<td>34523.0</td>
+<td>20507.0</td>
+</tr>
+<tr>
+<td>05</td>
+<td>30518.0</td>
+<td>28633.0</td>
+<td>37887.0</td>
+<td>28356.0</td>
+<td>16390.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Chaque colonne est une&nbsp;variable</strong></p>
+<p>Les variables sont&nbsp;:</p>
+<ul>
+<li>Le&nbsp;département</li>
+<li>L&#8217;age</li>
+<li>Le nombre de&nbsp;personne</li>
+</ul>
+<p>On s&#8217;attends à trouver 3 colonnes, mais on en a ici beaucoup&nbsp;plus.</p>
+<p>Les colonnes <code>0 à 19 ans</code>, <code>20 à 39 ans</code>, &#8230; sont en réalité les <strong>valeurs</strong> de la variable <code>age</code>.</p>
+<p>Comment passer la donnée en <em>tidy</em>&nbsp;? </p>
+<p>0n transforme les colonnes en lignes (les outils emploient souvent les termes de <code>melt</code> ou <code>stack</code>)</p>
+<table>
+<thead>
+<tr>
+<th>departements</th>
+<th>tranche</th>
+<th>nb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>82</td>
+<td>0 à 19 ans</td>
+<td>63113</td>
+</tr>
+<tr>
+<td>08</td>
+<td>60 à 74 ans</td>
+<td>51268</td>
+</tr>
+<tr>
+<td>51</td>
+<td>75 ans et plus</td>
+<td>49020</td>
+</tr>
+<tr>
+<td>03</td>
+<td>60 à 74 ans</td>
+<td>71910</td>
+</tr>
+<tr>
+<td>04</td>
+<td>40 à 59 ans</td>
+<td>43039</td>
+</tr>
+<tr>
+<td>81</td>
+<td>0 à 19 ans</td>
+<td>85209</td>
+</tr>
+<tr>
+<td>80</td>
+<td>75 ans et plus</td>
+<td>50518</td>
+</tr>
+<tr>
+<td>03</td>
+<td>0 à 19 ans</td>
+<td>67628</td>
+</tr>
+<tr>
+<td>93</td>
+<td>40 à 59 ans</td>
+<td>423665</td>
+</tr>
+<tr>
+<td>03</td>
+<td>75 ans et plus</td>
+<td>44309</td>
+</tr>
+</tbody>
+</table>
+<p>Cette disposition permet de répondre à notre question sans se battre avec son&nbsp;outil.</p>
+<p><strong><span class="dquo">&#8220;</span>Quelle est l&#8217;age approximatif des habitants de Lille, Strasbourg et Paris en&nbsp;2018&#8221;</strong></p>
+<p>En python cela donne&nbsp;:</p>
+<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Notes</span>
+<span class="sd">- `france` est de type Pandas dataframe</span>
+<span class="sd">- on passe en pourcentage les valeurs pour comparer les départements</span>
+<span class="sd">   pourcentage = (nb tranche d&#39;age pour un departement) / (nombre total de personne dans un departement)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">france</span><span class="p">[</span><span class="n">france</span><span class="o">.</span><span class="n">departements</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;59&#39;</span><span class="p">,</span> <span class="s1">&#39;75&#39;</span><span class="p">,</span> <span class="s1">&#39;67&#39;</span><span class="p">])]</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;departements&quot;</span><span class="p">,</span>
+                 <span class="n">y</span><span class="o">=</span><span class="s2">&quot;pourcentage&quot;</span><span class="p">,</span>
+                 <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;tranche&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">france</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+<p><img alt="Age de la population 2018" src="/images/tidydata/population-age-75_59_67.png"></p>
+<h2>So what&nbsp;?</h2>
+<p>Moins de temps passé à discuter avec son outil == plus de temps pour la réflexion et l&#8217;interprétation des&nbsp;résultats.</p>
+<p>J&#8217;ai l&#8217;habitude de faire mes analyses avec la <a href="https://pydata.org/">pydata stack</a> mais un <em>excel ninja</em> devrait pouvoir appliquer les transformations utilisées ici sans trop de problèmes et en tirer les mêmes&nbsp;bénéfices.</p>
+<p>Pour aller plus loin, l&#8217;article de  <a href="http://vita.had.co.nz/papers/tidy-data.pdf">Hadley Wickham</a> donne plusieurs solutions pratiques pour convertir un dataset <em>dirty</em> en <em>tidy</em>.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/2020/08/tls-ssl/" id="next-neighbour">&laquo; “TLS SSL”</a>
+		<a href="/2020/05/aws-serverless/" id="prev-neighbour">“AWS Serverless” &raquo;</a>
+	</div>
+
+			<hr>
+		</article>
+
+		<footer>
+			<p>Powered by <a href="http://getpelican.com">Pelican</a></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

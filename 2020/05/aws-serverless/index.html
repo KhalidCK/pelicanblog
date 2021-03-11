@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>“AWS Serverless” | KhalidCK</title>
+	<meta name="description" content="Consommateur régulier de fruits et légumes bio, j’ai cependant peu de boutiques à proximité (une seul à moins de 15 min). Comment savoir si les prix sont raisonnables ? Après quelques recherches le RNM propose un jeu de données mis à jour …">
+	<meta name="author" content="Khalid CK">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="khalidck.fr">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="“AWS Serverless”">
+	<meta property="og:description" content="Consommateur régulier de fruits et légumes bio, j’ai cependant peu de boutiques à proximité (une seul à moins de 15 min). Comment savoir si les prix sont raisonnables ? Après quelques recherches le RNM propose un jeu de données mis à jour …">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="/2020/05/aws-serverless/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<div id="name"><a href="/">KhalidCK</a></div>
+			<div id="bio">technotes</div>
+
+
+			<div id="social">
+				<a href="https://github.com/khalidck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.linkedin.com/in/khalid-chakhmoun-83876033" title="LinkedIN" class="icon fa fa-linkedin"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/2020/05/aws-serverless/" title="Permalink to “AWS Serverless”"><span class="dquo">&#8220;</span><span class="caps">AWS</span>&nbsp;Serverless&#8221;</a></h1>
+	<time class="date" datetime="2020-05-26 17:03:36+01:00">May 2020</time>
+	<div class="content">
+		<p>Consommateur régulier de fruits et légumes bio, j’ai cependant peu de
+boutiques à proximité (une seul à moins de 15&nbsp;min).</p>
+<p>Comment savoir si les prix sont raisonnables&nbsp;?</p>
+<p>Après quelques recherches le <a href="https://rnm.franceagrimer.fr/accueil"><span class="caps">RNM</span></a>
+propose un jeu de données mis à jour régulièrement (merci à la
+<a href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000033202746&amp;dateTexte=&amp;categorieLien=id">République numérique</a>).</p>
+<p>Pour répondre à cette question, j’ai besoin des éléments suivants&nbsp;:</p>
+<ol>
+<li>
+<p>Récupérer périodiquement les données sur le site du <span class="caps">RNM</span></p>
+</li>
+<li>
+<p>Transformer les données pour obtenir la réponse à ma&nbsp;question</p>
+</li>
+<li>
+<p>Visualiser le&nbsp;résultat</p>
+</li>
+</ol>
+<!--remettre en ordre-->
+
+<h2>Les outils serverless d’<span class="caps">AWS</span> se prêtent bien à ce genre&nbsp;d’architecture.</h2>
+<ol>
+<li>Récupérer périodiquement les données sur le site du <span class="caps">RNM</span></li>
+</ol>
+<p><img alt="retrieve data" src="/images/vegeprice/image5.png"></p>
+<ol>
+<li>Transformer les données pour obtenir la réponse à ma&nbsp;question</li>
+</ol>
+<p><img alt="process data" src="/images/vegeprice/image3.png"></p>
+<ol>
+<li>Visualiser le&nbsp;résultat</li>
+</ol>
+<p><img alt="frontend" src="/images/vegeprice/image1.png"></p>
+<h3>Vocabulaire</h3>
+<p><img alt="lambda" src="/images/vegeprice/image6.png"> Un morceau de code. C’est une <strong>lambda</strong> dans le vocabulaire <span class="caps">AWS</span>, elle va s&#8217;exécuter au moment&nbsp;opportun.</p>
+<p><img alt="s3" src="/images/vegeprice/image4.png"> <strong><span class="caps">AWS</span> S3</strong>, pour le stockage. Il a l&#8217;avantage d’être simple et peu cher (de
+l&#8217;ordre de 2 centimes les 10 <span class="caps">GB</span> par&nbsp;mois)</p>
+<p><img alt="vuejs" src="/images/vegeprice/image2.png"> L’application <a href="https://vuejs.org/">VueJS</a> qui s&#8217;exécute sur le navigateur (Firefox,
+chrome&nbsp;…)</p>
+<p>Le resultat: <strong><a href="https://www.vegeprice.fr">VegePrice.fr</a></strong></p>
+<p><a href="https://www.vegeprice.fr"><img alt="peek vegeprice" src="/images/vegeprice/peek-vegeprice.apng"></a></p>
+<h2>Le serverless permet de passer rapidement de l’idée à la mise en&nbsp;oeuvre.</h2>
+<p>Cependant, il n’y a pas de solution&nbsp;magique</p>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/There_ain%27t_no_such_thing_as_a_free_lunch">There ain&#8217;t no such thing as a free&nbsp;lunch</a></p>
+</blockquote>
+<p>Cette approche demande de nouvelles expertises, moins de
+contrôle direct, un pricing plus&nbsp;compliqué…</p>
+<p>Pour se forger une opinion,
+<span class="caps">AWS</span> met à disposition plusieurs ressources accessible,visible sur les
+<a href="https://aws.amazon.com/fr/free/?audit=2019q1&amp;all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=tier%23always-free">Offre gratuite
+d&#8217;<span class="caps">AWS</span></a></p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/2020/06/tidy-data/" id="next-neighbour">&laquo; “Tidy Data”</a>
+	</div>
+
+			<hr>
+		</article>
+
+		<footer>
+			<p>Powered by <a href="http://getpelican.com">Pelican</a></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

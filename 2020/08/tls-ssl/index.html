@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>“TLS SSL” | KhalidCK</title>
+	<meta name="description" content="TL;DR Too Long Didn’t Read HTTPS = HTTP sur TLS Les 2 idées majeures de TLS: Orchestrer le partage d’un secret à distance (cryptographie asymétrique) Chain of trust: l’ami de mon ami est mon ami Ce sont les …">
+	<meta name="author" content="Khalid CK">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="khalidck.fr">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="“TLS SSL”">
+	<meta property="og:description" content="TL;DR Too Long Didn’t Read HTTPS = HTTP sur TLS Les 2 idées majeures de TLS: Orchestrer le partage d’un secret à distance (cryptographie asymétrique) Chain of trust: l’ami de mon ami est mon ami Ce sont les …">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="/2020/08/tls-ssl/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<div id="name"><a href="/">KhalidCK</a></div>
+			<div id="bio">technotes</div>
+
+
+			<div id="social">
+				<a href="https://github.com/khalidck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.linkedin.com/in/khalid-chakhmoun-83876033" title="LinkedIN" class="icon fa fa-linkedin"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/2020/08/tls-ssl/" title="Permalink to “TLS SSL”"><span class="dquo">&#8220;</span><span class="caps">TLS</span> <span class="caps">SSL</span>&#8221;</a></h1>
+	<time class="date" datetime="2020-08-01 10:03:36+01:00">August 2020</time>
+	<div class="content">
+		<h2><span class="caps">TL</span>;<span class="caps">DR</span></h2>
+<p><em>Too Long Didn’t&nbsp;Read</em></p>
+<ul>
+<li><span class="caps">HTTP</span><strong>S</strong> = <span class="caps">HTTP</span> sur <span class="caps">TLS</span></li>
+<li>Les 2 idées majeures de <span class="caps">TLS</span>:<ol>
+<li>Orchestrer le partage d’un secret à distance (cryptographie&nbsp;asymétrique)</li>
+<li>Chain of trust: l’ami de mon ami est mon&nbsp;ami</li>
+</ol>
+</li>
+<li>Ce sont les acteurs majeurs(Firefox,Google,Microsoft) qui décident, par défaut, de la fiabilité d&#8217;un site&nbsp;web</li>
+</ul>
+<h2><span class="caps">HTTPS</span>, <span class="caps">SSL</span>, <span class="caps">TLS</span>&nbsp;?</h2>
+<p><strong><span class="caps">SSL</span></strong><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><strong>: </strong>le nom historique, <strong><span class="caps">TLS</span></strong>  la nouvelle version recommandée  par les standards internationaux&nbsp;.</p>
+<p><strong><span class="caps">HTTPS</span></strong>: la version sécurisée du protocole <span class="caps">HTTP</span>, on parle aussi de “<a href="https://tools.ietf.org/html/rfc2818"><span class="caps">HTTP</span> sur <span class="caps">TLS</span></a>”</p>
+<p>Pour des raisons de compatibilité, plusieurs logiciels dans leurs paramètres de configuration mentionnent <strong><span class="caps">SSL</span></strong><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> alors que le protocole implémenté et utilisé techniquement est <strong><span class="caps">TLS</span></strong>.</p>
+<p><img alt="stack-overview" src="/images/tls/tls-ssl-stack.svg"></p>
+<h2><span class="caps">TLS</span> - en&nbsp;bref</h2>
+<p>Il orchestre les différents échanges et permet aux client et serveur distant&nbsp;de:</p>
+<ul>
+<li>S’accorder sur la façon de sécuriser leurs échanges (combinaison d’algorithmes, échange de clés&nbsp;&#8230;)</li>
+<li>Vérifier l’identité du serveur&nbsp;distant </li>
+</ul>
+<h2>Un certificat&nbsp;?</h2>
+<p>Il permet d’assurer à l’utilisateur d’une clé publique qu’elle appartient bien à la personne&nbsp;attendue.</p>
+<p>On les retrouve dans la nature sous forme de fichier <em>.pem ou </em>.dem.</p>
+<p>Il protège d’attaque de type  “man in the&nbsp;middle”. </p>
+<p><img alt="stack-overview" src="/images/tls/trust-chain-overview.svg"></p>
+<h2>Un navigateur fait confiance à certaines pages et pas&nbsp;d’autres</h2>
+<p>Firefox arrive avec une liste de certificats considérés comme fiables par un processus défini par&nbsp;Mozilla/Firefox.</p>
+<p>Les autres navigateurs majeurs (Chrome,Microsoft Edge, …) se basent sur ceux présents sur le système&nbsp;d’exploitation. </p>
+<p>Les fournisseurs d&#8217;<span class="caps">OS</span> (Apple/Microsoft/etc) installent des certificats qu’ils pensent fiables via un procédé interne de&nbsp;sélection.</p>
+<p>Par transitivité, si je suis un utilisateur Windows, je fais confiance à ce dernier pour gérer et sélectionner les “root” certificats via le <a href="https://docs.microsoft.com/en-us/security/trusted-root/participants-list">Microsoft Trusted Root Program</a>. (~ 150&nbsp;participants).</p>
+<p><img alt="trust chain" src="/images/tls/trust-chain.svg"></p>
+<p>Ces certificats peuvent eux-mêmes signer d’autres certificats, et créent une chaîne de confiance (<strong>chain of trust</strong>) :_ l’ami de mon ami est mon ami&nbsp;_</p>
+<p>Pour “khalidck.fr”, si on inspecte le certificat via le <a href="https://support.mozilla.org/fr/kb/certificats-authentification-pour-sites-web-securises">navigateur</a>:</p>
+<p><img alt="exchange tls" src="/images/tls/exchange-tls.png"></p>
+<p>“<span class="caps">DST</span> <span class="caps">ROOT</span> <span class="caps">CA</span>” est <a href="https://ccadb-public.secure.force.com/mozilla/CACertificatesInFirefoxReport">connu de firefox</a> ce qui permet au final d’avoir une validation du&nbsp;navigateur </p>
+<p><img alt="firefox" src="/images/tls/screen-web-trust.png"></p>
+<h2>Bulletproof&nbsp;?</h2>
+<p><span class="caps">TLS</span> repose sur une base théorique forte, <strong>mais aussi</strong> sur un principe de confiance: le navigateur et/ou le système d&#8217;exploitation est responsable du choix des bons&nbsp;partenaires. </p>
+<p>Ce ne sont pas des machines, mais des êtres humains, des sociétés privées, des institutions ou des&nbsp;pays.</p>
+<p>La sécurité est avant tout une histoire de gestion des risques, aucun système n’est infaillible. Comprendre en détail son système et ses outils pour permet de prendre une décision&nbsp;éclairée.</p>
+<p>Quelques articles qui traitent du sujet&nbsp;:</p>
+<ul>
+<li><span class="caps">ROBERT</span> <span class="caps">HEATON</span>, “<a href="https://robertheaton.com/2018/11/28/https-in-the-real-world/"><span class="caps">HTTPS</span> in the real world</a>”</li>
+<li>Wikipedia,” <a href="https://en.wikipedia.org/wiki/Certificate_authority#CA_compromise"><span class="caps">CA</span> compromised</a>”</li>
+</ul>
+<!-- Footnotes themselves at the bottom. -->
+<h2>Notes</h2>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Il est recommandé de ne plus l’utiliser cf <a href="https://tools.ietf.org/html/rfc7568"><span class="caps">RFC</span> 7568 - Deprecating Secure Sockets Layer Version 3.0</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Par exemple <a href="https://nginx.org/en/docs/http/configuring_https_servers.html">nginx</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	</div>
+
+	<div id="related-articles">
+		<a href="/2020/06/tidy-data/" id="prev-neighbour">“Tidy Data” &raquo;</a>
+	</div>
+
+			<hr>
+		</article>
+
+		<footer>
+			<p>Powered by <a href="http://getpelican.com">Pelican</a></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>
